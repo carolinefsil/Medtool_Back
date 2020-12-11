@@ -12,6 +12,9 @@ public class Paciente implements Serializable {
 
     private String nomePaciente;
 
+
+
+
     public Long getIdPaciente() {
         return idPaciente;
     }
@@ -53,5 +56,9 @@ public class Paciente implements Serializable {
     @Override
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
+    }
+
+    public Paciente(Long idPaciente) {
+        this.idPaciente = idPaciente;
     }
 }

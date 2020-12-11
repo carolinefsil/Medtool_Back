@@ -15,9 +15,6 @@ public class Consulta implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idConsuta;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date data;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "medico")
     private Medico medico;
@@ -26,12 +23,27 @@ public class Consulta implements Serializable {
     @JoinColumn(name = "paciente")
     private Paciente paciente;
 
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "medicamento")
     private Medicamento medicamento;
 
     private String posologia;
+
+    private String data;
+
+    public Consulta() {
+
+    };
+
+
+    public Consulta(Long idConsuta, Medico medico, Paciente paciente, Medicamento medicamento, String posologia, String data) {
+        this.idConsuta = idConsuta;
+        this.medico = medico;
+        this.paciente = paciente;
+        this.medicamento = medicamento;
+        this.posologia = posologia;
+        this.data = data;
+    }
 
     public Long getIdConsuta() {
         return idConsuta;
@@ -39,14 +51,6 @@ public class Consulta implements Serializable {
 
     public void setIdConsuta(Long idConsuta) {
         this.idConsuta = idConsuta;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public Medico getMedico() {
@@ -81,15 +85,39 @@ public class Consulta implements Serializable {
         this.posologia = posologia;
     }
 
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
     @Override
     public String toString() {
         return "Consulta{" +
                 "idConsuta=" + idConsuta +
-                ", data=" + data +
                 ", medico=" + medico +
                 ", paciente=" + paciente +
                 ", medicamento=" + medicamento +
                 ", posologia='" + posologia + '\'' +
+                ", data='" + data + '\'' +
                 '}';
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    public Consulta(Long idConsuta) {
+        this.idConsuta = idConsuta;
     }
 }

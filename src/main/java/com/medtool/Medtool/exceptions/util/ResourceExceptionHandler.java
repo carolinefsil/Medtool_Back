@@ -96,25 +96,5 @@ public class ResourceExceptionHandler {
         error.setTimestamp(System.currentTimeMillis());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
-    @ExceptionHandler(PrescricaoException.class)
-    public ResponseEntity<ErrorDetails> handlerPrescricaoException(PrescricaoException e, HttpServletRequest request) {
-        e.printStackTrace();
-        ErrorDetails error = new ErrorDetails();
-        error.setStatus(500l);
-        error.setTitle("Prescricao exception.");
-        error.setUrl("http://erros.teste.com/500");
-        error.setTimestamp(System.currentTimeMillis());
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
-    }
 
-    @ExceptionHandler(PrescricaoNotFoundException.class)
-    public ResponseEntity<ErrorDetails> handlerPrescricaoException(PrescricaoNotFoundException e, HttpServletRequest request) {
-        e.printStackTrace();
-        ErrorDetails error = new ErrorDetails();
-        error.setStatus(404l);
-        error.setTitle("Prescricao not found exception.");
-        error.setUrl("http://erros.teste.com/404");
-        error.setTimestamp(System.currentTimeMillis());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
-    }
 }

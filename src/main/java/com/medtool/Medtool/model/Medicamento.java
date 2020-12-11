@@ -14,6 +14,7 @@ public class Medicamento implements Serializable {
 
     private String nomeMedicamento;
 
+
     public Long getIdMedicamento() {
         return idMedicamento;
     }
@@ -50,5 +51,14 @@ public class Medicamento implements Serializable {
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public Medicamento(Long idMedicamento) {
+        this.idMedicamento = idMedicamento;
     }
 }

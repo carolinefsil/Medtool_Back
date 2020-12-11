@@ -53,5 +53,9 @@ public class Medico {
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
+
+    public Medico(Long idMedico) {
+        this.idMedico = idMedico;
+    }
 }
 
